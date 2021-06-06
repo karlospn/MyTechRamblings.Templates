@@ -17,7 +17,6 @@ namespace ApplicationName.Library.Impl
         {
              _fooRepository = fooRepository;
              _logger = logger;
-
         }
 
         public async Task DoSomeProcessingAsync(FooDto dto)

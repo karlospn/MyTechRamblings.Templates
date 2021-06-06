@@ -7,6 +7,7 @@ using ApplicationName.RabbitConsumer.Worker.Bootstrap.Rabbit;
 using ApplicationName.RabbitConsumer.Worker.Mapper.Extension;
 using ApplicationName.RabbitConsumer.Worker.Messages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -20,7 +21,7 @@ namespace ApplicationName.RabbitConsumer.Worker
     {
         private readonly ILogger<Worker> _logger;
         private readonly RabbitMqConnection _rabbitConfig;
-        private readonly IFooService _service;
+        private readonly IServiceProvider _services;
 
         private ConnectionFactory _connectionFactory;
         private IConnection _connection;
@@ -28,10 +29,10 @@ namespace ApplicationName.RabbitConsumer.Worker
 
         public Worker(ILogger<Worker> logger,
             IConfiguration configuration, 
-            IFooService service)
+            IServiceProvider services)
         {
             _logger = logger;
-            _service = service;
+            _services = services;
 
             _rabbitConfig = new RabbitConfigurationProvider(configuration)
                 .GetRabbitMqConnection();
@@ -71,7 +72,12 @@ namespace ApplicationName.RabbitConsumer.Worker
                 try
                 {
                     var item = JsonConvert.DeserializeObject<FooMessage>(message);
-                    await _service.DoSomeProcessingAsync(item.ToDto());
+
+                    using (var scope = _services.CreateScope())
+                    {
+                        var instance = scope.ServiceProvider.GetRequiredService<IFooService>();
+                        await instance.DoSomeProcessingAsync(item.ToDto());
+                    }
 
                     _channel.BasicAck(ea.DeliveryTag, false);
                 }
