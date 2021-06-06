@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.0.79" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-CompanyPrefix.ApplicationName.Worker-9E7F40C2-E9CF-4046-A111-73A192B76754</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="AutoMapper" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+    <PackageReference Include="RabbitMQ.Client" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationName.Library.Contracts\ApplicationName.Library.Contracts.csproj" />
+    <ProjectReference Include="..\ApplicationName.Library.Impl\ApplicationName.Library.Impl.csproj" />
+    <ProjectReference Include="..\ApplicationName.Repository.Contracts\ApplicationName.Repository.Contracts.csproj" />
+    <ProjectReference Include="..\ApplicationName.Repository.Impl\ApplicationName.Repository.Impl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
