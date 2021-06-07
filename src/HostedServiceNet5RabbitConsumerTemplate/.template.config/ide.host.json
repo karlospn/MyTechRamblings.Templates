@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json.schemastore.org/vs-2017.3.host",
+    "order": 0,
+    "icon": "icon.png",
+    "symbolInfo": [
+      {       
+        "id": "Docker",
+        "isVisible": true      
+      },
+      {       
+        "id": "Readme",
+        "isVisible": true      
+      },
+      {
+        "id": "Tests",
+        "name": 
+        {
+          "text": "Unit Test and Integration Tests"
+        },
+        "isVisible": true
+      },
+      {       
+        "id": "Github",
+        "isVisible": true      
+      },
+      {       
+        "id": "AzurePipelines",
+        "isVisible": true      
+      },
+      {       
+        "id": "RabbitMqUsername",
+        "isVisible": true      
+      },
+      {       
+        "id": "RabbitMqPassword",
+        "isVisible": true      
+      },
+      {       
+        "id": "RabbitMqServer",
+        "isVisible": true      
+      },
+      {       
+        "id": "RabbitMqPort",
+        "isVisible": true      
+      },
+      {       
+        "id": "QueueName",
+        "isVisible": true      
+      }
+    ]
+}

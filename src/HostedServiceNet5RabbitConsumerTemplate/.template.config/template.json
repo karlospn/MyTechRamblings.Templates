@@ -1,0 +1,134 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "mytechramblings.com",
+    "classifications": [
+      "Cloud",
+      "Service",
+      "Web"
+    ],
+    "name": "NET 5 HostedService Rabbit Consumer",
+    "description": "A solution for consuming messages from a RabbitMQ server.",
+    "groupIdentity": "Dotnet.RabbitMq.Worker",
+    "identity": "Dotnet.RabbitMq.Worker.CSharp",
+    "shortName": "rabbit-worker",
+    "defaultName": "RabbitConsumer1",
+    "tags": {
+      "language": "C#",
+      "type": "solution"
+    },
+    "sourceName": "ApplicationName",
+    "preferNameDirectory": true,
+    "primaryOutputs": [
+        { "path": "ApplicationName.sln" }
+    ],
+    "sources": [
+        {
+          "modifiers": [
+                {
+                    "condition": "(!Docker)",
+                    "exclude":
+                    [
+                        "Dockerfile"
+                    ]
+                },
+                {
+                    "condition": "(!Readme)",
+                    "exclude": 
+                    [
+                        "README.md"
+                    ]
+                },
+                {
+                    "condition": "(!Tests)",
+                    "exclude": 
+                    [
+                        "test/ApplicationName.Library.Impl.UnitTest/**/*",
+                        "test/ApplicationName.RabbitConsumer.Worker.IntegrationTest/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!Github)",
+                    "exclude": 
+                    [
+                        ".github/workflows/app-deployment.yaml"
+                    ]
+                },
+                {
+                    "condition": "(!AzurePipelines)",
+                    "exclude": 
+                    [
+                        "pipelines/azure-pipelines.yaml"
+                    ]
+                }
+            ]
+        }
+    ],
+    "symbols": {
+        "Docker": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds an optimised Dockerfile to add the ability build a Docker image.",
+            "defaultValue": "true"
+        },
+        "ReadMe": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Add a README.md markdown file describing the project."
+        },
+        "Tests": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Adds an integration and unit test projects."
+        },
+        "GitHub": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds GitHub Actions continuous integration pipeline.",
+            "defaultValue": "false"
+        },
+        "AzurePipelines": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds Azure Pipelines YAML.",
+            "defaultValue": "false"
+        },
+        "QueueName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "Queue1",
+            "replaces": "QUEUE-NAME",
+            "description": "The name of the RabbitQueue where the consumer is going to be attached."
+        },
+        "RabbitMqUsername": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "demo",
+            "replaces": "RABBITMQ-USER",
+            "description": "A RabbitMq username used to connect to the cluster."
+        },
+        "RabbitMqPassword": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "1234",
+            "replaces": "RABBITMQ-PASSWORD",
+            "description": "A RabbitMq password used to connect to the cluster."
+        },
+        "RabbitMqServer": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "127.0.0.1",
+            "replaces": "RABBITMQ-SERVER",
+            "description": "The RabbitMq server uri."
+        },
+        "RabbitMqPort": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "5672",
+            "replaces": "RABBITMQ-PORT",
+            "description": "A RabbitMq server port used to connect to the cluster."
+        }
+    }
+}
+

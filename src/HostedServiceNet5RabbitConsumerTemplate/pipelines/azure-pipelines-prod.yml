@@ -1,0 +1,8 @@
+
+trigger:
+- master
+
+pool: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'

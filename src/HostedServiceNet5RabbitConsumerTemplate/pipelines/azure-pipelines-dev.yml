@@ -1,0 +1,10 @@
+
+trigger:
+- develop
+
+pool: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+        

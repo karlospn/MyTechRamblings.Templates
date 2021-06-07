@@ -17,8 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Library", "02 - Librar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Repository", "03 - Repository", "{36962587-DDC0-4863-AD8B-4A207C1622AD}"
 EndProject
+#if (Tests)
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8596A824-2068-4957-893B-70C9916358F1}"
 EndProject
+#endif
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BA516773-7739-4783-963E-35D1F495A572}"
 	ProjectSection(SolutionItems) = preProject
 		build\packages.props = build\packages.props
@@ -32,12 +34,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Repository.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Repository.Impl", "src\ApplicationName.Repository.Impl\ApplicationName.Repository.Impl.csproj", "{5E6D562B-069C-4523-ADFF-E4049FDCB606}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Library.Impl.UnitTest", "test\ApplicationName.Library.Impl.UnitTest\ApplicationName.Library.Impl.UnitTest.csproj", "{F0B0AF55-012A-45CE-AF1B-2A6251A43CE8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.RabbitConsumer.Worker", "src\ApplicationName.RabbitConsumer.Worker\ApplicationName.RabbitConsumer.Worker.csproj", "{A490FF10-EF17-4B27-9616-E2AC8F6F13DC}"
+EndProject
+#if (Tests)
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Library.Impl.UnitTest", "test\ApplicationName.Library.Impl.UnitTest\ApplicationName.Library.Impl.UnitTest.csproj", "{F0B0AF55-012A-45CE-AF1B-2A6251A43CE8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.RabbitConsumer.Worker.IntegrationTest", "test\ApplicationName.RabbitConsumer.Worker.IntegrationTest\ApplicationName.RabbitConsumer.Worker.IntegrationTest.csproj", "{4CC1276A-D673-4A7F-BCDD-0F9F193E02D9}"
 EndProject
+#endif
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
