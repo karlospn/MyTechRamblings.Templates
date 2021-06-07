@@ -1,0 +1,44 @@
+name: .NET Deploy to master
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+#if (DeployContainer)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v2
+    - name: Build, tag, and push image
+      env:
+        APP_NAME: ApplicationName
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $APP_NAME:$IMAGE_TAG .
+#endif
+
+#if (DeployZip)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    - name: Publish
+      run: dotnet publish 
+#endif
+
+# Add more steps to deploy the app wherever you want

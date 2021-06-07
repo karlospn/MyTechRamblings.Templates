@@ -5,46 +5,86 @@
     "symbolInfo": [
       {       
         "id": "Docker",
+        "name": 
+        {
+          "text": "Adds a Dockerfile."
+        },
         "isVisible": true      
       },
       {       
-        "id": "Readme",
+        "id": "ReadMe",
+        "name": 
+        {
+          "text": "Adds a Readme."
+        },
         "isVisible": true      
       },
       {
         "id": "Tests",
         "name": 
         {
-          "text": "Unit Test and Integration Tests"
+          "text": "Adds a Unit Test and a Integration Test project."
         },
         "isVisible": true
       },
       {       
-        "id": "Github",
+        "id": "GitHub",
+        "name": 
+        {
+          "text": "Adds a GitHub action to deploy the application."
+        },
         "isVisible": true      
       },
       {       
         "id": "AzurePipelines",
+        "name": 
+        {
+          "text": "Adds an Azure Pipeline YAML to deploy the application."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "DeploymentType",
         "isVisible": true      
       },
       {       
         "id": "RabbitMqUsername",
+        "name": 
+        {
+          "text": "RabbitMQ Username"
+        },
         "isVisible": true      
       },
       {       
         "id": "RabbitMqPassword",
+        "name": 
+        {
+          "text": "RabbitMQ Password"
+        },
         "isVisible": true      
       },
       {       
         "id": "RabbitMqServer",
+        "name": 
+        {
+          "text": "RabbitMQ Server URI"
+        },
         "isVisible": true      
       },
       {       
         "id": "RabbitMqPort",
+        "name": 
+        {
+          "text": "RabbitMQ AMQP Port"
+        },
         "isVisible": true      
       },
       {       
         "id": "QueueName",
+        "name": 
+        {
+          "text": "RabbitMQ QueueName"
+        },
         "isVisible": true      
       }
     ]

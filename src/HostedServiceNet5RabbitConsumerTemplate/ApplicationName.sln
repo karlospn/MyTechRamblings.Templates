@@ -6,9 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - ItemsSolution", "00 - ItemsSolution", "{1650D137-41BF-4463-99B5-7A44B3A09B64}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+#if (Docker)
 		Dockerfile = Dockerfile
+#endif
 		Packages.props = Packages.props
+#if (ReadMe)
 		README.md = README.md
+#endif
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Application", "01 - Application", "{289594BE-ADA7-4981-AD32-140F73572F16}"

@@ -1,8 +1,49 @@
-
 trigger:
 - master
 
-pool: 'ubuntu-latest'
+pool: 
+  vmImage: 'ubuntu-latest'
 
+#if (DeployContainer)
+steps:
+- script: |
+    echo Starting docker build
+    docker build -t ApplicationName:$(Build.BuildId) -f $(System.DefaultWorkingDirectory)/Dockerfile .
+  displayName: 'Run docker build'
+#endif
+
+#if (DeployZip)
 variables:
   buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: 'test'
+    projects: '**/*UnitTest.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: True
+#endif
+
+# Add more steps to deploy the app wherever you want

@@ -32,7 +32,7 @@
                     ]
                 },
                 {
-                    "condition": "(!Readme)",
+                    "condition": "(!ReadMe)",
                     "exclude": 
                     [
                         "README.md"
@@ -47,17 +47,17 @@
                     ]
                 },
                 {
-                    "condition": "(!Github)",
+                    "condition": "(!GitHub)",
                     "exclude": 
                     [
-                        ".github/workflows/app-deployment.yaml"
+                        ".github/**/*"
                     ]
                 },
                 {
                     "condition": "(!AzurePipelines)",
                     "exclude": 
                     [
-                        "pipelines/azure-pipelines.yaml"
+                        "pipelines/**/*"
                     ]
                 }
             ]
@@ -85,14 +85,38 @@
         "GitHub": {
             "type": "parameter",
             "datatype": "bool",
-            "description": "Adds GitHub Actions continuous integration pipeline.",
+            "description": "Adds a GitHub Actions continuous integration pipeline.",
             "defaultValue": "false"
         },
         "AzurePipelines": {
             "type": "parameter",
             "datatype": "bool",
-            "description": "Adds Azure Pipelines YAML.",
-            "defaultValue": "false"
+            "description": "Adds an Azure Pipelines YAML.",
+            "defaultValue": "true"
+        },
+        "DeploymentType": {
+            "type": "parameter",
+            "datatype": "choice",
+            "choices": [
+              {
+                "choice": "DeployAsContainer",
+                "description": "The app will be deployed as a container."
+              },
+              {
+                "choice": "DeployAsZip",
+                "description": "The app will be deployed as a zip file."
+              }
+            ],
+            "defaultValue": "DeployAsZip",
+            "description": "Select how you want to deploy the application."
+          },
+        "DeployContainer": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsContainer\")"
+        },
+        "DeployZip": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsZip\")"
         },
         "QueueName": {
             "type": "parameter",
@@ -128,6 +152,44 @@
             "defaultValue": "5672",
             "replaces": "RABBITMQ-PORT",
             "description": "A RabbitMq server port used to connect to the cluster."
+        }
+    },
+    "SpecialCustomOperations": {
+        "**/*.yml": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "#if" ],
+                  "else": [ "#else" ],
+                  "elseif": [ "#elseif" ],
+                  "endif": [ "#endif" ],
+                  "actionableIf": [ "##if" ],
+                  "actionableElse": [ "##else" ],
+                  "actionableElseif": [ "##elseif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "#",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "##",
+                  "replacement": "#",
+                  "id": "reduceComment"
+                }
+              }
+            ]
         }
     }
 }
