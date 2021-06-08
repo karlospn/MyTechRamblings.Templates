@@ -33,6 +33,15 @@
         },
         "DeploymentType": {
             "longName": "deploy-type"
+        },
+        "AcrName": {
+            "longName": "acr-name"
+        },
+        "AzureSubscriptionName": {
+            "longName": "azure-subscription"
+        },
+        "AppServiceName": {
+            "longName": "app-service-name"
         }
     }
 }

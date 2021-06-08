@@ -152,6 +152,27 @@
             "defaultValue": "5672",
             "replaces": "RABBITMQ-PORT",
             "description": "A RabbitMq server port used to connect to the cluster."
+        },
+        "AcrName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "acrcponsndev",
+            "replaces": "ACR-REGISTRY-NAME",
+            "description": "An Azure ACR registry name. Only used if deploying with containers."
+        },
+        "AzureSubscriptionName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "acr-cponsn-dev-subscription",
+            "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
+            "description": "An Azure Subscription Name."
+        },
+        "AppServiceName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "app-svc-demo-dev",
+            "replaces": "APP-SERVICE-NAME",
+            "description": "An Azure App Service Name."
         }
     },
     "SpecialCustomOperations": {

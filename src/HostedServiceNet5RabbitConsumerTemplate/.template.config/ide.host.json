@@ -48,6 +48,30 @@
         "isVisible": true      
       },
       {       
+        "id": "AcrName",
+        "name": 
+        {
+          "text": "Name of the ACR Registry, only used if deploying with container"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureSubscriptionName",
+        "name": 
+        {
+          "text": "Azure subscription name"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AppServiceName",
+        "name": 
+        {
+          "text": "Azure Application Service Name"
+        },
+        "isVisible": true      
+      },
+      {       
         "id": "RabbitMqUsername",
         "name": 
         {
