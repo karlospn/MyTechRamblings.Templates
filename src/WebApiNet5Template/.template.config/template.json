@@ -8,9 +8,9 @@
     ],
     "name": "NET 5 WebApi",
     "description": "A WebApi solution.",
-    "groupIdentity": "Dotnet.Web.Api",
-    "identity": "Dotnet.Web.Api.CSharp",
-    "shortName": "api",
+    "groupIdentity": "Dotnet.Custom.WebApi",
+    "identity": "Dotnet.Custom.WebApi.CSharp",
+    "shortName": "mtr-api",
     "defaultName": "WebApi1",
     "tags": {
       "language": "C#",
@@ -209,9 +209,9 @@
       "SwaggerPath": {
         "type": "parameter",
         "datatype": "string",
-        "defaultValue": "/api-docs",
+        "defaultValue": "api-docs",
         "replaces": "SWAGGER-PATH",
-        "description": "Swagger UI Path. Only necessary if Swagger is enabled."
+        "description": "Swagger UI Path. Do not add a backslash. Only necessary if Swagger is enabled."
       },
       "Contact": {
         "type": "parameter",

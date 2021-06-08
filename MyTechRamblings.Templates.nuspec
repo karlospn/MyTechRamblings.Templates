@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MyTechRamblings.Templates</id>
+    <version>0.1.0</version>
+    <description>Testing the dotnet template engine</description>
+    <authors>mytechramblings</authors>
+    <title>MyTechRamblings NET Template</title>
+    <copyright>Copyright 2021: www.mytechramblings.com. All right Reserved</copyright>
+    <tags>Templates</tags>
+    <language>en-US</language>
+	<packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+  <files>
+    <file src="**" exclude="**\bin\**\*;**\obj\**\*;**\*.user;**\*.lock.json;_rels\**\*;package\**\*" />
+  </files>
+</package>

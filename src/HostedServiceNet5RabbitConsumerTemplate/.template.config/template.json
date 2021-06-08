@@ -10,7 +10,7 @@
     "description": "A solution for consuming messages from a RabbitMQ server.",
     "groupIdentity": "Dotnet.RabbitMq.Worker",
     "identity": "Dotnet.RabbitMq.Worker.CSharp",
-    "shortName": "rabbit-worker",
+    "shortName": "mtr-rabbit-worker",
     "defaultName": "RabbitConsumer1",
     "tags": {
       "language": "C#",
