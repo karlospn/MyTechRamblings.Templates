@@ -1,0 +1,179 @@
+{
+    "$schema": "http://json.schemastore.org/vs-2017.3.host",
+    "order": 0,
+    "icon": "icon.png",
+    "symbolInfo": [
+      {       
+        "id": "Docker",
+        "name": 
+        {
+          "text": "Adds a Dockerfile."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "ReadMe",
+        "name": 
+        {
+          "text": "Adds a Readme."
+        },
+        "isVisible": true      
+      },
+      {
+        "id": "Tests",
+        "name": 
+        {
+          "text": "Adds a Unit Test and a Integration Test project."
+        },
+        "isVisible": true
+      },
+      {       
+        "id": "GitHub",
+        "name": 
+        {
+          "text": "Adds a GitHub action to deploy the application."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzurePipelines",
+        "name": 
+        {
+          "text": "Adds an Azure Pipeline YAML to deploy the application."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "DeploymentType",
+        "isVisible": true      
+      },
+      {       
+        "id": "AcrName",
+        "name": 
+        {
+          "text": "Name of the ACR Registry, only used if deploying with container."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureSubscriptionName",
+        "name": 
+        {
+          "text": "Azure subscription name."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AppServiceName",
+        "name": 
+        {
+          "text": "Azure Application Service Name."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "Authorization",
+        "name": 
+        {
+          "text": "Enable the use of authorization with Microsoft.Identity.Web."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureAdTenantId",
+        "name": 
+        {
+          "text": "Azure Active Directory Tenant Id. Only necessary if Authorization is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureAdDomain",
+        "name": 
+        {
+          "text": "Azure Active Directory Domain Name. Only necessary if Authorization is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureAdClientId",
+        "name": 
+        {
+          "text": "Azure Active Directory App Client Id. Only necessary if Authorization is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureAdSecret",
+        "name": 
+        {
+          "text": "Azure Active Directory App Secret Value. Only necessary if Authorization is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "HealthCheck",
+        "name": 
+        {
+          "text": "Enable the use of healthchecks."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "HealthCheckPath",
+        "name": 
+        {
+          "text": "HealthCheck path. Only necessary if HealthCheck is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "Swagger",
+        "name": 
+        {
+          "text": "Enable the use of Swagger."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "SwaggerPath",
+        "name": 
+        {
+          "text": "Swagger UI Path. Only necessary if Swagger is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "Contact",
+        "name": 
+        {
+          "text": "The contact details to use if someone wants to contact you. Only necessary if Swagger is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "CompanyName",
+        "name": 
+        {
+          "text": "The name of the company. Only necessary if Swagger is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "CompanyWebsite",
+        "name": 
+        {
+          "text": "The website of the company. Only necessary if Swagger is enabled."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "ApiDescription",
+        "name": 
+        {
+          "text": "The description of the WebAPI. Only necessary if Swagger is enabled."
+        },
+        "isVisible": true      
+      }
+    ]
+}

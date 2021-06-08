@@ -1,0 +1,72 @@
+{
+    "$schema": "http://json.schemastore.org/dotnetcli.host",
+    "symbolInfo": 
+    {
+        "Docker": {
+            "longName": "dockerfile"
+        },
+        "ReadMe": {
+            "longName": "readme"
+        },
+        "Tests": {
+            "longName": "tests"
+        },
+        "GitHub": {
+            "longName": "github"
+        },
+        "AzurePipelines": {
+            "longName": "azure-pipelines"
+        },
+        "DeploymentType": {
+            "longName": "deploy-type"
+        },
+        "AcrName": {
+            "longName": "acr-name"
+        },
+        "AzureSubscriptionName": {
+            "longName": "azure-subscription"
+        },
+        "AppServiceName": {
+            "longName": "app-service-name"
+        },
+        "Authorization": {
+            "longName": "authorization"
+        },
+        "AzureAdTenantId":{
+            "longName": "aad-tenant-id"
+        },
+        "AzureAdDomain":{
+            "longName": "aad-domain-name"
+        },
+        "AzureAdClientId":{
+            "longName": "aad-client-id"
+        },
+        "AzureAdSecret":{
+            "longName": "aad-secret-value"
+        },
+        "HealthCheck": {
+            "longName": "healthcheck"
+        },
+        "HealthCheckPath": {
+            "longName": "healthcheck-path"
+        },
+        "Swagger": {
+            "longName": "swagger"
+        },
+        "SwaggerPath": {
+            "longName": "swagger-path"
+        },
+        "Contact": {
+            "longName": "contact-mail"
+        },
+        "CompanyName": {
+            "longName": "company-name"
+        },
+        "CompanyWebsite": {
+            "longName": "company-website"
+        },
+        "ApiDescription": {
+            "longName": "api-description"
+        }
+    }
+}

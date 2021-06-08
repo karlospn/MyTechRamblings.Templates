@@ -6,9 +6,13 @@ MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - ItemsSolution", "00 - ItemsSolution", "{1650D137-41BF-4463-99B5-7A44B3A09B64}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+#if (Docker)
 		Dockerfile = Dockerfile
+#endif
 		Packages.props = Packages.props
+#if (ReadMe)
 		README.md = README.md
+#endif
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Application", "01 - Application", "{E6EA83BA-62FD-4AE9-880C-DEA2EF17F0DB}"
@@ -17,8 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Library", "02 - Librar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Repository", "03 - Repository", "{CFC38E08-D854-4127-AB0A-FD3AB3095959}"
 EndProject
+#if (Tests)
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0323DDF8-0F80-4DF1-8F12-C37353534337}"
 EndProject
+#endif
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Library.Contracts", "src\ApplicationName.Library.Contracts\ApplicationName.Library.Contracts.csproj", "{A53F014F-5176-41A8-BD77-C5387B6B4C32}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Library.Impl", "src\ApplicationName.Library.Impl\ApplicationName.Library.Impl.csproj", "{CD07A722-7913-418D-AA1A-CC21A04240D5}"
@@ -38,10 +44,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BA516773
 		build\packages.props = build\packages.props
 	EndProjectSection
 EndProject
+#if (Tests)
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.WebApi.IntegrationTest", "test\ApplicationName.WebApi.IntegrationTest\ApplicationName.WebApi.IntegrationTest.csproj", "{205B0B75-C24F-40E4-BA69-46AE61CF9C20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationName.Library.Impl.UnitTest", "test\ApplicationName.Library.Impl.UnitTest\ApplicationName.Library.Impl.UnitTest.csproj", "{C22AA50D-81CC-4A9B-9926-7AB8445246A9}"
 EndProject
+#endif
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

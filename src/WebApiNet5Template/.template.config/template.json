@@ -1,0 +1,284 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "mytechramblings.com",
+    "classifications": [
+      "Cloud",
+      "Service",
+      "Web"
+    ],
+    "name": "NET 5 WebApi",
+    "description": "A WebApi solution.",
+    "groupIdentity": "Dotnet.Web.Api",
+    "identity": "Dotnet.Web.Api.CSharp",
+    "shortName": "api",
+    "defaultName": "WebApi1",
+    "tags": {
+      "language": "C#",
+      "type": "solution"
+    },
+    "sourceName": "ApplicationName",
+    "preferNameDirectory": true,
+    "primaryOutputs": [
+        { "path": "ApplicationName.sln" }
+    ],
+    "sources": [
+        {
+          "modifiers": [
+                {
+                    "condition": "(!Docker)",
+                    "exclude":
+                    [
+                        "Dockerfile"
+                    ]
+                },
+                {
+                    "condition": "(!ReadMe)",
+                    "exclude": 
+                    [
+                        "README.md"
+                    ]
+                },
+                {
+                    "condition": "(!Tests)",
+                    "exclude": 
+                    [
+                        "test/ApplicationName.Library.Impl.UnitTest/**/*",
+                        "test/ApplicationName.WebApi.IntegrationTest/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!GitHub)",
+                    "exclude": 
+                    [
+                        ".github/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!AzurePipelines)",
+                    "exclude": 
+                    [
+                        "pipelines/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!Swagger)",
+                    "exclude": 
+                    [
+                      "src/ApplicationName.WebApi/Extensions/ServiceCollectionExtensions/ServiceCollectionSwaggerExtension.cs"
+                    ]
+                },
+                {
+                    "condition": "(!HealthCheck)",
+                    "exclude": 
+                    [
+                      "src/ApplicationName.WebApi/Extensions/ServiceCollectionExtensions/ServiceCollectionHealthChecksExtension.cs"
+                    ]
+                }
+            ]
+        }
+    ],
+    "symbols": {
+        "Docker": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds an optimised Dockerfile to add the ability build a Docker image.",
+            "defaultValue": "true"
+        },
+        "ReadMe": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Add a README.md markdown file describing the project."
+        },
+        "Tests": {
+            "type": "parameter",
+            "datatype": "bool",
+            "defaultValue": "true",
+            "description": "Adds an integration and unit test projects."
+        },
+        "GitHub": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds a GitHub Actions continuous integration pipeline.",
+            "defaultValue": "false"
+        },
+        "AzurePipelines": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds an Azure Pipelines YAML.",
+            "defaultValue": "true"
+        },
+        "DeploymentType": {
+            "type": "parameter",
+            "datatype": "choice",
+            "choices": [
+              {
+                "choice": "DeployAsContainer",
+                "description": "The app will be deployed as a container."
+              },
+              {
+                "choice": "DeployAsZip",
+                "description": "The app will be deployed as a zip file."
+              }
+            ],
+            "defaultValue": "DeployAsZip",
+            "description": "Select how you want to deploy the application."
+          },
+        "DeployContainer": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsContainer\")"
+        },
+        "DeployZip": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsZip\")"
+        },
+      "AcrName": {
+          "type": "parameter",
+          "datatype": "string",
+          "defaultValue": "acrcponsndev",
+          "replaces": "ACR-REGISTRY-NAME",
+          "description": "An Azure ACR registry name. Only used if deploying with containers."
+      },
+      "AzureSubscriptionName": {
+          "type": "parameter",
+          "datatype": "string",
+          "defaultValue": "acr-cponsn-dev-subscription",
+          "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
+          "description": "An Azure Subscription Name."
+      },
+      "AppServiceName": {
+          "type": "parameter",
+          "datatype": "string",
+          "defaultValue": "app-svc-demo-dev",
+          "replaces": "APP-SERVICE-NAME",
+          "description": "An Azure App Service Name."
+      },
+      "Authorization": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Enable the use of authorization with Microsoft.Identity.Web."
+      },
+      "AzureAdTenantId":{
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "8a0671e2-3a30-4d30-9cb9-ad709b9c744a",
+        "replaces": "AAD-TENANT-ID",
+        "description": "Azure Active Directory Tenant Id. Only necessary if Authorization is enabled."
+      },
+      "AzureAdDomain":{
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "carlosponsnoutlook.onmicrosoft.com",
+        "replaces": "AAD-DOMAIN",
+        "description": "Azure Active Directory Domain Name. Only necessary if Authorization is enabled."
+      },
+      "AzureAdClientId":{
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "fdada45d-8827-466f-82a5-179724a3c268",
+        "replaces": "AAD-CLIENT-ID",
+        "description": "Azure Active Directory App Client Id. Only necessary if Authorization is enabled."
+      },
+      "AzureAdSecret":{
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "1234",
+        "replaces": "AAD-SECRET-VALUE",
+        "description": "Azure Active Directory App Secret Value. Only necessary if Authorization is enabled."
+      },
+      "HealthCheck": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Enable the use of healthchecks."
+      },
+      "HealthCheckPath": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "/health",
+        "replaces": "HEALTHCHECK-PATH",
+        "description": "HealthCheck path. Only necessary if HealthCheck is enabled."
+      },
+      "Swagger": {
+        "type": "parameter",
+        "datatype": "bool",
+        "defaultValue": "true",
+        "description": "Enable the use of Swagger."
+      },
+      "SwaggerPath": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "/api-docs",
+        "replaces": "SWAGGER-PATH",
+        "description": "Swagger UI Path. Only necessary if Swagger is enabled."
+      },
+      "Contact": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "[user@example.com|@ExampleUser]",
+        "replaces": "API-CONTACT",
+        "description": "The contact details to use if someone wants to contact you. Only necessary if Swagger is enabled."
+      },
+      "CompanyName": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "mytechramblings",
+        "replaces": "COMPANY-NAME",
+        "description": "The name of the company. Only necessary if Swagger is enabled."
+      },
+      "CompanyWebsite": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "www.mytechramblings.com",
+        "replaces": "COMPANY-WEBSITE",
+        "description": "The website of the company. Only necessary if Swagger is enabled."
+      },
+      "ApiDescription": {
+        "type": "parameter",
+        "datatype": "string",
+        "defaultValue": "Put your api info",
+        "replaces": "API-DESCRIPTION",
+        "description": "The description of the WebAPI. Only necessary if Swagger is enabled."
+      }
+    },
+    "SpecialCustomOperations": {
+        "**/*.yml": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "#if" ],
+                  "else": [ "#else" ],
+                  "elseif": [ "#elseif" ],
+                  "endif": [ "#endif" ],
+                  "actionableIf": [ "##if" ],
+                  "actionableElse": [ "##else" ],
+                  "actionableElseif": [ "##elseif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "#",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "##",
+                  "replacement": "#",
+                  "id": "reduceComment"
+                }
+              }
+            ]
+        }
+    }
+}
+
