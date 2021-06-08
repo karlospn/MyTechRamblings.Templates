@@ -7,13 +7,18 @@ using ApplicationName.Library.Contracts.Dto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+#if Authorization
+using Microsoft.AspNetCore.Authorization;
+#endif
 
 namespace ApplicationName.WebApi.Controllers.V1
 {
     /// <summary>
     /// Foo service
     /// </summary>
-    //[Authorize]
+#if Authorization
+    [Authorize]
+#endif
     [ApiVersion("1.0")]
     [ApiController]
     [ProducesResponseType(typeof(ErrorResult),  StatusCodes.Status400BadRequest)]
