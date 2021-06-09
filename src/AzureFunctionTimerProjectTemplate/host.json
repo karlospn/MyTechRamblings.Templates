@@ -8,7 +8,7 @@
       }
     },
     "logLevel": {
-      "ApplicationName.Function.Function": "Information"
+      "default": "LOG-LEVEL"
     }
   }
 }

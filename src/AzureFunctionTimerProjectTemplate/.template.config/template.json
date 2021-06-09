@@ -1,0 +1,167 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "mytechramblings.com",
+    "classifications": [
+      "Cloud",
+      "Service",
+      "Web"
+    ],
+    "name": "Azure Function with Timer and NET Core 3.1",
+    "description": "An Azure Function trigger by a timer and built using NET Core 3.1",
+    "groupIdentity": "Dotnet.Function.Timer",
+    "identity": "Dotnet.Function.Timer.CSharp",
+    "shortName": "mtr-az-func-timer",
+    "defaultName": "TimerFunction1",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "sourceName": "ApplicationName",
+    "preferNameDirectory": true,
+    "sources": [
+        {
+          "modifiers": [
+                {
+                    "condition": "(!Docker)",
+                    "exclude":
+                    [
+                        "Dockerfile",
+                        ".dockerignore"
+                    ]
+                },
+                {
+                    "condition": "(!GitHub)",
+                    "exclude": 
+                    [
+                        ".github/**/*"
+                    ]
+                },
+                {
+                    "condition": "(!AzurePipelines)",
+                    "exclude": 
+                    [
+                        "pipelines/**/*"
+                    ]
+                }
+            ]
+        }
+    ],
+    "symbols": {
+        "Docker": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds an optimised Dockerfile to add the ability build a Docker image.",
+            "defaultValue": "true"
+        },
+        "GitHub": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds a GitHub Actions continuous integration pipeline.",
+            "defaultValue": "false"
+        },
+        "AzurePipelines": {
+            "type": "parameter",
+            "datatype": "bool",
+            "description": "Adds an Azure Pipelines YAML.",
+            "defaultValue": "true"
+        },
+        "DeploymentType": {
+            "type": "parameter",
+            "datatype": "choice",
+            "choices": [
+              {
+                "choice": "DeployAsContainer",
+                "description": "The function will be deployed as a container."
+              },
+              {
+                "choice": "DeployAsZip",
+                "description": "The function will be deployed as a zip file."
+              }
+            ],
+            "defaultValue": "DeployAsZip",
+            "description": "Select how you want to deploy the function."
+          },
+        "DeployContainer": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsContainer\")"
+        },
+        "DeployZip": {
+            "type": "computed",
+            "value": "(DeploymentType == \"DeployAsZip\")"
+        },
+        "FunctionName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "MyFunction",
+            "replaces": "FUNCTION-NAME",
+            "description": "The name of the Azure Function."
+        },
+        "Cron": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "0 * * * * *",
+            "replaces": "CRON-TIMER",
+            "description": "The timer expression in cron expression."
+        },
+        "LogLevel": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "Information",
+            "replaces": "LOG-LEVEL",
+            "description": "Default LogLevel for the Azure Function."
+        },
+        "AcrName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "acrcponsndev",
+            "replaces": "ACR-REGISTRY-NAME",
+            "description": "An Azure ACR registry name. Only used if deploying with containers."
+        },
+        "AzureSubscriptionName": {
+            "type": "parameter",
+            "datatype": "string",
+            "defaultValue": "acr-cponsn-dev-subscription",
+            "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
+            "description": "An Azure Subscription Name. Only used if deploying with Azure pipelines."
+        }
+    },
+    "SpecialCustomOperations": {
+        "**/*.yml": {
+            "operations": [
+              {
+                "type": "conditional",
+                "configuration": {
+                  "if": [ "#if" ],
+                  "else": [ "#else" ],
+                  "elseif": [ "#elseif" ],
+                  "endif": [ "#endif" ],
+                  "actionableIf": [ "##if" ],
+                  "actionableElse": [ "##else" ],
+                  "actionableElseif": [ "##elseif" ],
+                  "actions": [ "uncomment", "reduceComment" ],
+                  "trim": "true",
+                  "wholeLine": "true",
+                  "evaluator": "C++"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "#",
+                  "replacement": "",
+                  "id": "uncomment"
+                }
+              },
+              {
+                "type": "replacement",
+                "configuration": {
+                  "original": "##",
+                  "replacement": "#",
+                  "id": "reduceComment"
+                }
+              }
+            ]
+        }
+    }
+}
+

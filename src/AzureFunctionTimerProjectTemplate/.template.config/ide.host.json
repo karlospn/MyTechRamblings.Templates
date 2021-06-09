@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json.schemastore.org/vs-2017.3.host",
+    "order": 0,
+    "icon": "icon.png",
+    "symbolInfo": [
+      {       
+        "id": "Docker",
+        "name": 
+        {
+          "text": "Adds a Dockerfile."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "GitHub",
+        "name": 
+        {
+          "text": "Adds a GitHub action to deploy the application."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzurePipelines",
+        "name": 
+        {
+          "text": "Adds an Azure Pipeline YAML to deploy the application."
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "DeploymentType",
+        "isVisible": true      
+      },
+      {       
+        "id": "AcrName",
+        "name": 
+        {
+          "text": "Name of the ACR Registry, only used if deploying with container"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "AzureSubscriptionName",
+        "name": 
+        {
+          "text": "Azure subscription name"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "FunctionName",
+        "name": 
+        {
+          "text": "The name of the Azure Function"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "Cron",
+        "name": 
+        {
+          "text": "The timer expression in cron expression"
+        },
+        "isVisible": true      
+      },
+      {       
+        "id": "LogLevel",
+        "name": 
+        {
+          "text": "Default LogLevel for the Azure Function"
+        },
+        "isVisible": true      
+      }
+    ]
+}

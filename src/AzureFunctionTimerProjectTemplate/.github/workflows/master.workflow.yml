@@ -1,0 +1,90 @@
+name: .NET App Deploy to App Service
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+#if (DeployContainer)
+env:
+  AZURE_FUNCTION_NAME: FUNCTION-NAME   
+  CONTAINER_REGISTRY: ACR-REGISTRY-NAME.azurecr.io 
+
+jobs:
+  build-and-deploy-to-dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+    # Checkout the repo
+    - uses: actions/checkout@master
+
+    # Authenticate to Azure
+    - name: Azure authentication
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+ 
+    # Authenticate to ACR
+    - name: ACR authentication
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ env.CONTAINER_REGISTRY }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }} 
+
+    # Build and push the Docker image
+    - name: Docker Build & Push to ACR
+      run: |
+        docker build . -t ${{ env.CONTAINER_REGISTRY }}/ApplicationName:${{ github.sha }}
+        docker push ${{ env.CONTAINER_REGISTRY }}/ApplicationName:${{ github.sha }} 
+
+    # Deploy to Azure
+    - name: 'Deploy to Azure Function'
+      uses: Azure/functions-container-action@v1
+      with: 
+        app-name: ${{ env.AZURE_FUNCTION_NAME }} 
+        images: ${{ env.CONTAINER_REGISTRY }}/ApplicationName:${{ github.sha }}
+#endif
+
+#if (DeployZip)
+env:
+  AZURE_FUNCTION_NAME: FUNCTION-NAME
+  OUTPUT_PATH: ${{ github.workspace }}/.output      
+  DOTNET_VERSION: '3.1.100'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@master
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release -o ${{ env.OUTPUT_PATH }}
+
+      # Login to Azure   
+      - name: "Login via Azure CLI"
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Run Function
+      - name: "Run Azure Functions Action"
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ env.AZURE_FUNCTION_NAME }}
+          package: ${{ env.OUTPUT_PATH }}
+#endif
+

@@ -18,8 +18,8 @@ namespace ApplicationName.Function
             _fooService = fooService;
         }
 
-        [FunctionName("Function")]
-        public async Task Run([TimerTrigger("%TimerInterval%")]TimerInfo myTimer)
+        [FunctionName("FUNCTION-NAME")]
+        public async Task Run([TimerTrigger("CRON-TIMER")]TimerInfo myTimer)
         {
             var result = await _fooService.GetFoo();
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now} and the service says: {result} ");

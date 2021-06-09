@@ -13,6 +13,9 @@ Copy-Item -Path "./src/WebApiNet5Template" -Recurse -Destination "$contentDirect
 Write-Output "Copy HostedServiceNet5RabbitConsumer template"
 Copy-Item -Path "./src/HostedServiceNet5RabbitConsumerTemplate" -Recurse -Destination "$contentDirectory/HostedServiceNet5RabbitConsumerTemplate" -Container
 
+Write-Output "Copy AzureFunctionTimerProjectTemplate template"
+Copy-Item -Path "./src/AzureFunctionTimerProjectTemplate" -Recurse -Destination "$contentDirectory/AzureFunctionTimerProjectTemplate" -Container
+
 Write-Output "Copy nuspec"
 Copy-item -Force -Recurse "MyTechRamblings.Templates.nuspec" -Destination $templatePath
 

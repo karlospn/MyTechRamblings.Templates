@@ -1,0 +1,88 @@
+trigger:
+- master
+
+pool: 
+  vmImage: 'ubuntu-latest'
+
+#if (DeployContainer)
+variables:
+  - name: registryName
+    value: 'ACR-REGISTRY-NAME'
+  - name: azureSubscription
+    value: 'AZURE-SUBSCRIPTION-ENDPOINT-NAME'
+  - name: funcName
+    value: 'FUNCTION-NAME'
+
+steps:
+  - task: AzureCLI@2
+    displayName: AZ ACR Login
+    inputs:
+      azureSubscription: $(azureSubscription)
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: 'az acr login --name $(registryName)'
+
+  - task: AzureCLI@2
+    displayName: AZ ACR Build
+    inputs:
+      azureSubscription: $(azureSubscription)
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: 'az acr build -t ApplicationName:$(Build.BuildId) -t ApplicationName:latest -r $(registryName) -f Dockerfile .'
+      useGlobalConfig: true
+      workingDirectory: '$(Build.SourcesDirectory)'
+
+  - task: AzureFunctionAppContainer@1
+    displayName: Deploy to Azure Function
+    inputs:
+      azureSubscription: '$(azureSubscription)'
+      appName: '$(funcName)'
+      imageName: '$(registryName).azurecr.io/ApplicationName:latest'
+#endif
+
+#if (DeployZip)
+variables:
+  - name: buildConfiguration
+    value: 'Release'
+  - name: azureSubscription
+    value: 'AZURE-SUBSCRIPTION-ENDPOINT-NAME'
+  - name: funcName
+    value: 'FUNCTION-NAME'
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
+
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+      arguments: '--configuration $(buildConfiguration) --no-restore'
+
+  - task: DotNetCoreCLI@2
+    displayName: Test
+    inputs:
+      command: 'test'
+      projects: '**/*UnitTest.csproj'
+      arguments: '--configuration $(buildConfiguration) --no-restore'
+
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
+      command: publish
+      publishWebProjects: True
+      arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+      zipAfterPublish: True
+      
+  - task: AzureFunctionApp@1
+    inputs:
+      azureSubscription: '$(azureSubscription)'
+      appType: 'functionAppLinux'
+      appName: '$(funcName)'
+      package: '$(build.artifactstagingdirectory/*.zip'
+    displayName: Deploy Azure Function
+#endif
