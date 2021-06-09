@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+<package>
   <metadata>
     <id>MyTechRamblings.Templates</id>
     <version>0.1.0</version>
-    <description>Testing the dotnet template engine</description>
-    <authors>mytechramblings</authors>
-    <title>MyTechRamblings NET Template</title>
+    <description>This nuget is an example about how to pack multiple dotnet templates in a single NuGet package and use it within Visual Studio or the .NET CLI.</description>
+    <authors>Carlos Pons (www.mytechramblings.com)</authors>
+    <title>MyTechRamblings Dotnet Templates</title>
     <copyright>Copyright 2021: www.mytechramblings.com. All right Reserved</copyright>
-    <tags>Templates</tags>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <tags>.NET WebApi Rabbit Function Templates</tags>
+    <projectUrl>https://github.com/karlospn/pack-dotnet-templates-example</projectUrl>
+    <repository type="git" url="https://github.com/karlospn/pack-dotnet-templates-example.git" branch="main"  />
     <language>en-US</language>
 	<packageTypes>
       <packageType name="Template" />

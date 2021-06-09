@@ -4,7 +4,7 @@ $templatePath =     "./$templateName/mtr"
 $contentDirectory = "./$templateName/mtr/content"
 $nugetPath = "./$templateName/nuget.exe"
 $nugetOut =  "./$templateName/nuget"
-$nugetUrl = "https://dist.nuget.org/win-x86-commandline/v4.6.0-preview3/nuget.exe"
+$nugetUrl = "https://dist.nuget.org/win-x86-commandline/v5.9.1/nuget.exe"
 
 
 Write-Output "Copy WebApiNet5 template"
