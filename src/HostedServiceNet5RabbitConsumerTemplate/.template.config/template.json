@@ -163,7 +163,7 @@
         "AzureSubscriptionName": {
             "type": "parameter",
             "datatype": "string",
-            "defaultValue": "acr-cponsn-dev-subscription",
+            "defaultValue": "cponsn-dev-subscription",
             "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
             "description": "An Azure Subscription Name."
         },

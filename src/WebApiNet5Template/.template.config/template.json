@@ -81,7 +81,7 @@
         "Docker": {
             "type": "parameter",
             "datatype": "bool",
-            "description": "Adds an optimised Dockerfile to add the ability build a Docker image.",
+            "description": "Adds an optimised Dockerfile to add the ability to build a Docker image.",
             "defaultValue": "true"
         },
         "ReadMe": {
@@ -142,9 +142,9 @@
       "AzureSubscriptionName": {
           "type": "parameter",
           "datatype": "string",
-          "defaultValue": "acr-cponsn-dev-subscription",
+          "defaultValue": "cponsn-dev-subscription",
           "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
-          "description": "An Azure Subscription Name."
+          "description": "An Azure Subscription Name. Only used if you are going to be deploying with Azure Pipelines. "
       },
       "AppServiceName": {
           "type": "parameter",
@@ -157,7 +157,7 @@
         "type": "parameter",
         "datatype": "bool",
         "defaultValue": "true",
-        "description": "Enable the use of authorization with Microsoft.Identity.Web."
+        "description": "Enables the use of authorization with Microsoft.Identity.Web."
       },
       "AzureAdTenantId":{
         "type": "parameter",
@@ -191,7 +191,7 @@
         "type": "parameter",
         "datatype": "bool",
         "defaultValue": "true",
-        "description": "Enable the use of healthchecks."
+        "description": "Enables the use of healthchecks."
       },
       "HealthCheckPath": {
         "type": "parameter",
@@ -216,7 +216,7 @@
       "Contact": {
         "type": "parameter",
         "datatype": "string",
-        "defaultValue": "[user@example.com|@ExampleUser]",
+        "defaultValue": "user@example.com",
         "replaces": "API-CONTACT",
         "description": "The contact details to use if someone wants to contact you. Only necessary if Swagger is enabled."
       },
@@ -237,7 +237,7 @@
       "ApiDescription": {
         "type": "parameter",
         "datatype": "string",
-        "defaultValue": "Put your api info",
+        "defaultValue": "Put your api info here",
         "replaces": "API-DESCRIPTION",
         "description": "The description of the WebAPI. Only necessary if Swagger is enabled."
       }
