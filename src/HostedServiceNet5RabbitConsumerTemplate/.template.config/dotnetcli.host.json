@@ -2,46 +2,60 @@
     "$schema": "http://json.schemastore.org/dotnetcli.host",
     "symbolInfo": {
         "Docker": {
-            "longName": "dockerfile"
+            "longName": "dockerfile",
+            "shortName": "d"
         },
         "ReadMe": {
-            "longName": "readme"
+            "longName": "readme",
+            "shortName": "r"
         },
         "Tests": {
-            "longName": "tests"
+            "longName": "tests",
+            "shortName": "t"
         },
         "GitHub": {
-            "longName": "github"
+            "longName": "github",
+            "shortName": "ga"
         },
         "AzurePipelines": {
-            "longName": "azure-pipelines"
+            "longName": "azure-pipelines",
+            "shortName": "ap"
         },
         "QueueName": {
-            "longName": "queue-name"
+            "longName": "queue-name",
+            "shortName": "qn"
         },
         "RabbitMqUsername": {
-            "longName": "rabbit-user"
+            "longName": "rabbit-user",
+            "shortName": "ru"
         },
         "RabbitMqPassword": {
-            "longName": "rabbit-password"
+            "longName": "rabbit-password",
+            "shortName": "rp"
         },
         "RabbitMqServer": {
-            "longName": "rabbit-server"
+            "longName": "rabbit-server",
+            "shortName": "rs"
         },
         "RabbitMqPort": {
-            "longName": "rabbit-port"
+            "longName": "rabbit-port",
+            "shortName": "rpt"
         },
         "DeploymentType": {
-            "longName": "deploy-type"
+            "longName": "deploy-type",
+            "shortName": "dt"
         },
         "AcrName": {
-            "longName": "acr-name"
+            "longName": "acr-name",
+            "shortName": "acr"
         },
         "AzureSubscriptionName": {
-            "longName": "azure-subscription"
+            "longName": "azure-subscription",
+            "shortName": "az"
         },
         "AppServiceName": {
-            "longName": "app-service-name"
+            "longName": "app-service-name",
+            "shortName": "as"
         }
     }
 }

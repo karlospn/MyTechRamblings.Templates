@@ -169,7 +169,7 @@
       "AzureAdDomain":{
         "type": "parameter",
         "datatype": "string",
-        "defaultValue": "carlosponsnoutlook.onmicrosoft.com",
+        "defaultValue": "cpnoutlook.onmicrosoft.com",
         "replaces": "AAD-DOMAIN",
         "description": "Azure Active Directory Domain Name. Only necessary if Authorization is enabled."
       },

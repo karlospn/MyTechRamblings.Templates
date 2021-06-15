@@ -1,72 +1,94 @@
 {
     "$schema": "http://json.schemastore.org/dotnetcli.host",
-    "symbolInfo": 
+    "symbolInfo":
     {
         "Docker": {
-            "longName": "dockerfile"
+            "longName": "dockerfile",
+            "shortName": "d"
         },
         "ReadMe": {
-            "longName": "readme"
+            "longName": "readme",
+            "shortName": "r"
         },
         "Tests": {
-            "longName": "tests"
+            "longName": "tests",
+            "shortName": "t"
         },
         "GitHub": {
-            "longName": "github"
+            "longName": "github",
+            "shortName": "ga"
         },
         "AzurePipelines": {
-            "longName": "azure-pipelines"
+            "longName": "azure-pipelines",
+            "shortName": "ap"
         },
         "DeploymentType": {
-            "longName": "deploy-type"
+            "longName": "deploy-type",
+            "shortName": "dt"
         },
         "AcrName": {
-            "longName": "acr-name"
+            "longName": "acr-name",
+            "shortName": "acr"
         },
         "AzureSubscriptionName": {
-            "longName": "azure-subscription"
+            "longName": "azure-subscription",
+            "shortName": "az"
         },
         "AppServiceName": {
-            "longName": "app-service-name"
+            "longName": "app-service-name",
+            "shortName": "asn"
         },
         "Authorization": {
-            "longName": "authorization"
+            "longName": "authorization",
+            "shortName": "auth"
         },
         "AzureAdTenantId":{
-            "longName": "aad-tenant-id"
+            "longName": "aad-tenant-id",
+            "shortName": "at"
         },
         "AzureAdDomain":{
-            "longName": "aad-domain-name"
+            "longName": "aad-domain-name",
+            "shortName": "ad"
         },
         "AzureAdClientId":{
-            "longName": "aad-client-id"
+            "longName": "aad-client-id",
+            "shortName": "ac"
         },
         "AzureAdSecret":{
-            "longName": "aad-secret-value"
+            "longName": "aad-secret-value",
+            "shortName": "as"
         },
         "HealthCheck": {
-            "longName": "healthcheck"
+            "longName": "healthcheck",
+            "shortName": "hck"
         },
         "HealthCheckPath": {
-            "longName": "healthcheck-path"
+            "longName": "healthcheck-path",
+            "shortName": "hp"
         },
         "Swagger": {
-            "longName": "swagger"
+            "longName": "swagger",
+            "shortName": "s"
         },
         "SwaggerPath": {
-            "longName": "swagger-path"
+            "longName": "swagger-path",
+            "shortName": "sp"
         },
         "Contact": {
-            "longName": "contact-mail"
+            "longName": "contact-mail",
+            "shortName": "cm"
         },
         "CompanyName": {
-            "longName": "company-name"
+            "longName": "company-name",
+            "shortName": "cn"
         },
         "CompanyWebsite": {
-            "longName": "company-website"
+            "longName": "company-website",
+            "shortName": "cw"
         },
         "ApiDescription": {
-            "longName": "api-description"
+            "longName": "api-description",
+            "shortName": "desc"
         }
     }
 }

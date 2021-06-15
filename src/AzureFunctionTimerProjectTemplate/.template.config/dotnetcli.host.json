@@ -2,31 +2,40 @@
     "$schema": "http://json.schemastore.org/dotnetcli.host",
     "symbolInfo": {
         "Docker": {
-            "longName": "dockerfile"
+            "longName": "dockerfile",
+            "shortName": "d"
         },
         "GitHub": {
-            "longName": "github"
+            "longName": "github",
+            "shortName": "ga"
         },
         "AzurePipelines": {
-            "longName": "azure-pipelines"
+            "longName": "azure-pipelines",
+            "shortName": "ap"
         },
         "FunctionName": {
-            "longName": "function-name"
+            "longName": "function-name",
+            "shortName": "fn"
         },
         "Cron": {
-            "longName": "cron"
+            "longName": "cron",
+            "shortName": "c"
         },
         "LogLevel": {
-            "longName": "log-level"
+            "longName": "log-level",
+            "shortName": "log"
         },
         "DeploymentType": {
-            "longName": "deploy-type"
+            "longName": "deploy-type",
+            "shortName": "dt"
         },
         "AcrName": {
-            "longName": "acr-name"
+            "longName": "acr-name",
+            "shortName": "acr"
         },
         "AzureSubscriptionName": {
-            "longName": "azure-subscription"
+            "longName": "azure-subscription",
+            "shortName": "az"
         }
     }
 }
