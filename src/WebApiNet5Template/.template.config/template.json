@@ -28,7 +28,8 @@
                     "condition": "(!Docker)",
                     "exclude":
                     [
-                        "Dockerfile"
+                        "Dockerfile",
+                        ".dockerignore"
                     ]
                 },
                 {

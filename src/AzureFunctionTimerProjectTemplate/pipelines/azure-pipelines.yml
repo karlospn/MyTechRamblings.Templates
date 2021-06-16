@@ -72,7 +72,7 @@ steps:
     inputs:
       command: publish
       publishWebProjects: True
-      arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+      arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
       
   - task: AzureFunctionApp@1
@@ -80,7 +80,7 @@ steps:
       azureSubscription: '$(azureSubscription)'
       appType: 'functionAppLinux'
       appName: '$(funcName)'
-      package: '$(build.artifactstagingdirectory/*.zip'
+      package: '$(build.artifactstagingdirectory)/*.zip'
     displayName: Deploy Azure Function
 
 #endif
