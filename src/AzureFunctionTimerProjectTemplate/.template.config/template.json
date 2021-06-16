@@ -3,8 +3,7 @@
     "author": "mytechramblings.com",
     "classifications": [
       "Cloud",
-      "Service",
-      "Web"
+      "Service"
     ],
     "name": "Azure Function with Timer and NET Core 3.1",
     "description": "An Azure Function trigger by a timer and built using NET Core 3.1",

@@ -3,8 +3,8 @@
     "author": "mytechramblings.com",
     "classifications": [
       "Cloud",
-      "Service",
-      "Web"
+      "Web",
+      "WebAPI"
     ],
     "name": "NET 5 WebApi",
     "description": "A WebApi solution.",

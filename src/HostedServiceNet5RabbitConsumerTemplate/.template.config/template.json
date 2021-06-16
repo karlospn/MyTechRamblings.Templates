@@ -2,9 +2,8 @@
     "$schema": "http://json.schemastore.org/template",
     "author": "mytechramblings.com",
     "classifications": [
-      "Cloud",
-      "Service",
-      "Web"
+      "Common",
+      "Worker"
     ],
     "name": "NET 5 HostedService Rabbit Consumer",
     "description": "A solution for consuming messages from a RabbitMQ server.",
