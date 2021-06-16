@@ -4,17 +4,19 @@ This repository contains a practical example about how to pack multiple dotnet t
 
 > **To work with these templates you need Visual Studio 16.10 or higher.**
 
-Each template has a ``.template.config`` folder. This folder contains a definition of how the template works within Visual Studio and the dotnet cli.
+Each template contains a series of preprocessor directives an placeholder values so don't try to clone the repository and use the templates directly because it won't work. You need to install the templates and then use it alongside the .NET CLI or Visual Studio.
 
-Each template contains a series of preprocessor directives an placeholder values so it cannot be used directly from this repository, instead of you need to use it within Visual Studio or the .NET CLI.
+If you want to install this templates there are 3 options available:
 
-The repository contains a powershell ``create-nuget.ps1`` that is used to pack the templates inside a NuGet package.     
-If you want to use the templates you need to ran the powershell script and after that you can install it using the ``dotnet new -i MyTechRamblings.Templates.0.1.0.nupkg`` command.
+1- There is a powershell script in the root level of this repository ``create-nuget.ps1``. If you try execute it, it will create a .nupkg file on your filesystem. Afterward, you can install the .nupkg using the ``dotnet new -i MyTechRamblings.Templates.0.3.0.nupkg`` command.   
 
-I have published the nuget, so if you don't want to create the nuget by yourself you can get it from here: https://www.nuget.org/packages/MyTechRamblings.Templates
+2 - Run the ``dotnet new -i MyTechRamblings.Templates::0.3.0`` command. This command will try to fetch the package from ``nuget.org`` and install it.   
 
-This repository is tied to a post in my blog. You can read it here: 
-//TODO: Add blog post
+3 - Download the package from [nuget.org](https://www.nuget.org/packages/MyTechRamblings.Templates) and install it using the the ``dotnet new -i MyTechRamblings.Templates.0.3.0.nupkg`` command.   
+
+After installing the templates pack you should run the ``dotnet new -l`` command and verify that the 3 templates appear on the list (``mtr-api``, ``mtr-rabbit-worker``, ``mtr-az-func-timer``).
+
+This repository is tied to a post series in my blog. You can read it [here](https://www.mytechramblings.com/posts/create-dotnet-templates-for-visual-studio-part-1/)
 
 # Templates
 
