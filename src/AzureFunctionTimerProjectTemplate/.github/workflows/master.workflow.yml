@@ -22,13 +22,13 @@ jobs:
     - uses: actions/checkout@master
 
     # Authenticate to Azure
-    - name: Azure authentication
+    - name: 'Azure authentication'
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
  
     # Authenticate to ACR
-    - name: ACR authentication
+    - name: 'ACR authentication'
       uses: azure/docker-login@v1
       with:
         login-server: ${{ env.CONTAINER_REGISTRY }}
@@ -36,7 +36,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }} 
 
     # Build and push the Docker image
-    - name: Docker Build & Push to ACR
+    - name: 'Docker Build & Push to ACR'
       run: |
         docker build . -t ${{ env.CONTAINER_REGISTRY }}/ApplicationName:${{ github.sha }}
         docker push ${{ env.CONTAINER_REGISTRY }}/ApplicationName:${{ github.sha }} 
@@ -59,26 +59,26 @@ jobs:
       - uses: actions/checkout@master
       
       # Setup .NET Core SDK
-      - name: Setup .NET Core
+      - name: 'Setup .NET Core'
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.x'
       
       # Run dotnet build and publish
-      - name: dotnet build and publish
+      - name: 'dotnet build and publish'
         run: |
           dotnet restore
           dotnet build --configuration Release
           dotnet publish -c Release -o ${{ github.workspace }}/.output
 
       # Login to Azure   
-      - name: "Login via Azure CLI"
+      - name: 'Login via Azure CLI'
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Run Function
-      - name: "Run Azure Functions Action"
+      - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTION_NAME }}

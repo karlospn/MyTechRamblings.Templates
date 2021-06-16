@@ -70,15 +70,16 @@ steps:
   displayName: Publish
   inputs:
     command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    publishWebProjects: false
+    projects: '**/ApplicationName.RabbitConsumer.Worker.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
-- task: AzureRmWebAppDeployment@4
+- task: AzureWebApp@1
+  displayName: Deploy Azure Web App
   inputs:
-    ConnectionType: 'AzureRM'
     azureSubscription: '$(azureSubscription)'
+    appName: '$(appServiceName)'
     appType: 'webApp'
-    WebAppName: '$(appServiceName)'
-    packageForLinux: '$(build.artifactstagingdirectory)/*.zip'
+    package: $(Build.ArtifactStagingDirectory)/**/*.zip
 #endif

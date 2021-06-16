@@ -35,7 +35,7 @@
         "id": "AcrName",
         "name": 
         {
-          "text": "Name of the ACR Registry, only used if deploying with container"
+          "text": "Name of the ACR Registry, only used if deploying with container."
         },
         "isVisible": true      
       },
@@ -43,7 +43,7 @@
         "id": "AzureSubscriptionName",
         "name": 
         {
-          "text": "Azure subscription name"
+          "text": "Azure subscription name, only used if deploying with Azure Pipelines."
         },
         "isVisible": true      
       },

@@ -59,7 +59,7 @@
         "id": "AzureSubscriptionName",
         "name": 
         {
-          "text": "Azure subscription name"
+          "text": "An Azure subscription service endpoint name, only used if deploying with Azure DevOps."
         },
         "isVisible": true      
       },
@@ -67,7 +67,7 @@
         "id": "AppServiceName",
         "name": 
         {
-          "text": "Azure Application Service Name"
+          "text": "The name of the Azure App Service."
         },
         "isVisible": true      
       },

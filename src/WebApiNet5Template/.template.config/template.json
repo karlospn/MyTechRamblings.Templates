@@ -72,7 +72,8 @@
                     "condition": "(!HealthCheck)",
                     "exclude": 
                     [
-                      "src/ApplicationName.WebApi/Extensions/ServiceCollectionExtensions/ServiceCollectionHealthChecksExtension.cs"
+                      "src/ApplicationName.WebApi/Extensions/ServiceCollectionExtensions/ServiceCollectionHealthChecksExtension.cs",
+                      "src/ApplicationName.WebApi/Extensions/ApplicationBuilderExtensions/ApplicationBuilderWriteResponseExtension.cs"
                     ]
                 }
             ]
@@ -95,12 +96,12 @@
             "type": "parameter",
             "datatype": "bool",
             "defaultValue": "true",
-            "description": "Adds an integration and unit test projects."
+            "description": "Adds an integration project and unit test projects."
         },
         "GitHub": {
             "type": "parameter",
             "datatype": "bool",
-            "description": "Adds a GitHub Actions continuous integration pipeline.",
+            "description": "Adds a GitHub action continuous integration pipeline.",
             "defaultValue": "false"
         },
         "AzurePipelines": {
@@ -145,14 +146,14 @@
           "datatype": "string",
           "defaultValue": "cponsn-dev-subscription",
           "replaces": "AZURE-SUBSCRIPTION-ENDPOINT-NAME",
-          "description": "An Azure Subscription Name. Only used if you are going to be deploying with Azure Pipelines. "
+          "description": "An Azure Subscription Name. Only used if you are going to be deploying with Azure Pipelines."
       },
       "AppServiceName": {
           "type": "parameter",
           "datatype": "string",
           "defaultValue": "app-svc-demo-dev",
           "replaces": "APP-SERVICE-NAME",
-          "description": "An Azure App Service Name."
+          "description": "The name of Azure App Service."
       },
       "Authorization": {
         "type": "parameter",
