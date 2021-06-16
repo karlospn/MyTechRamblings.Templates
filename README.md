@@ -1,6 +1,6 @@
 # MyTechRamblings.Templates
 
-![status workflow](https://github.com/karlospn/pack-dotnet-templates-example/actions/workflows/main.yml/badge.svg)
+![status workflow](https://github.com/karlospn/MyTechRamblings.Templates/actions/workflows/main.yml/badge.svg)
 
 This repository contains a practical example about how to pack multiple dotnet templates in a single NuGet package and use it within Visual Studio or the .NET CLI.
 
