@@ -41,7 +41,7 @@ steps:
     inputs:
       azureSubscription: '$(azureSubscription)'
       appName: '$(appServiceName)'
-      containers: '$(registryName).azurecr.io/$(imageName):latest'
+      containers: '$(registryName).azurecr.io/ApplicationName:latest'
 #endif
 
 #if (DeployZip)

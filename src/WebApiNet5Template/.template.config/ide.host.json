@@ -163,7 +163,7 @@
         "id": "CompanyWebsite",
         "name": 
         {
-          "text": "The website of the company. Only necessary if Swagger is enabled."
+          "text": "The website of the company. Needs to be a valid Uri. Only necessary if Swagger is enabled."
         },
         "isVisible": true      
       },

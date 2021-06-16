@@ -231,9 +231,9 @@
       "CompanyWebsite": {
         "type": "parameter",
         "datatype": "string",
-        "defaultValue": "www.mytechramblings.com",
+        "defaultValue": "https://www.mytechramblings.com",
         "replaces": "COMPANY-WEBSITE",
-        "description": "The website of the company. Only necessary if Swagger is enabled."
+        "description": "The website of the company. Needs to be a valid Uri. Only necessary if Swagger is enabled."
       },
       "ApiDescription": {
         "type": "parameter",
