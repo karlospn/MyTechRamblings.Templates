@@ -82,4 +82,5 @@ steps:
       appName: '$(funcName)'
       package: '$(build.artifactstagingdirectory/*.zip'
     displayName: Deploy Azure Function
+
 #endif
