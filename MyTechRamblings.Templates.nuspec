@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>MyTechRamblings.Templates</id>
-    <version>0.3.0</version>
+    <version>0.5.0</version>
     <description>This nuget is an example about how to pack multiple dotnet templates in a single NuGet package and use it within Visual Studio or the .NET CLI.</description>
     <authors>Carlos Pons (www.mytechramblings.com)</authors>
     <title>MyTechRamblings Dotnet Templates</title>
@@ -10,8 +10,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <tags>.NET WebApi Rabbit Function Templates</tags>
-    <projectUrl>https://github.com/karlospn/pack-dotnet-templates-example</projectUrl>
-    <repository type="git" url="https://github.com/karlospn/pack-dotnet-templates-example.git" branch="main"  />
+    <projectUrl>https://github.com/karlospn/MyTechRamblings.Templates</projectUrl>
+    <repository type="git" url="https://github.com/karlospn/MyTechRamblings.Templates.git" branch="main"  />
     <language>en-US</language>
 	<packageTypes>
       <packageType name="Template" />
