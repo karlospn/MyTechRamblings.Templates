@@ -6,11 +6,13 @@ on:
   pull_request:
     branches: [ master ]
 
-#if (DeployContainer)
 env:
-  AZURE_FUNCTION_NAME: FUNCTION-NAME   
+  AZURE_FUNCTION_NAME: FUNCTION-NAME
+#if (DeployContainer)
   CONTAINER_REGISTRY: ACR-REGISTRY-NAME.azurecr.io 
+#endif
 
+#if (DeployContainer)
 jobs:
   build-and-deploy-to-dev:
     runs-on: ubuntu-latest
@@ -48,11 +50,6 @@ jobs:
 #endif
 
 #if (DeployZip)
-env:
-  AZURE_FUNCTION_NAME: FUNCTION-NAME
-  OUTPUT_PATH: ${{ github.workspace }}/.output      
-  DOTNET_VERSION: '3.1.100'
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -65,14 +62,14 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: ${{ env.DOTNET_VERSION }} 
+          dotnet-version: '3.1.x'
       
       # Run dotnet build and publish
       - name: dotnet build and publish
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release -o ${{ env.OUTPUT_PATH }}
+          dotnet publish -c Release -o ${{ github.workspace }}/.output
 
       # Login to Azure   
       - name: "Login via Azure CLI"
@@ -85,6 +82,6 @@ jobs:
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTION_NAME }}
-          package: ${{ env.OUTPUT_PATH }}
+          package: ${{ github.workspace }}/.output
 #endif
 

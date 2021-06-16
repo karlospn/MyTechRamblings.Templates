@@ -4,15 +4,20 @@ trigger:
 pool: 
   vmImage: 'ubuntu-latest'
 
-#if (DeployContainer)
 variables:
-  - name: registryName
-    value: 'ACR-REGISTRY-NAME'
+  - name: buildConfiguration
+    value: 'Release'
   - name: azureSubscription
     value: 'AZURE-SUBSCRIPTION-ENDPOINT-NAME'
   - name: funcName
     value: 'FUNCTION-NAME'
+#if (DeployContainer)    
+  - name: registryName
+    value: 'ACR-REGISTRY-NAME'
+#endif
 
+
+#if (DeployContainer)
 steps:
   - task: AzureCLI@2
     displayName: AZ ACR Login
@@ -41,14 +46,6 @@ steps:
 #endif
 
 #if (DeployZip)
-variables:
-  - name: buildConfiguration
-    value: 'Release'
-  - name: azureSubscription
-    value: 'AZURE-SUBSCRIPTION-ENDPOINT-NAME'
-  - name: funcName
-    value: 'FUNCTION-NAME'
-
 steps:
   - task: DotNetCoreCLI@2
     displayName: Restore
